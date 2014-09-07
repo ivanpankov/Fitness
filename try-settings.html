@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Fitness Settings Demo</title>
+    <link rel="stylesheet" href="css/normalize.css"/>
+
+    <style>
+        .form-item {
+            margin: 6px;
+        }
+
+        #box-settings {
+            display: block;
+            width: 220px;
+            float: right;
+        }
+
+        #box {
+            border: 1px solid #cecece;
+            height: 300px;
+            max-width: 1200px;
+            margin: 20px 300px 10px 10px;
+            background-color: #f6f6f6;
+        }
+
+        #box > div > div {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+</head>
+<body>
+
+
+<fieldset id="box-settings">
+    <legend>Change box settings</legend>
+    <div class="form-item">
+        <input type="checkbox" id="nowrap"/>
+        <label for="nowrap">nowrap</label>
+    </div>
+
+    <div class="form-item">
+        <input type="checkbox" id="fitOnResize"/>
+        <label for="fitOnResize">fit text on window resize</label>
+    </div>
+
+    <div class="form-item">
+        <label for="verticalAlign">Vertical align</label>
+        <select name="verticalAlign" id="verticalAlign">
+            <option value="top">top</option>
+            <option value="middle">middle</option>
+            <option value="bottom">bottom</option>
+        </select>
+    </div>
+
+    <div class="form-item">
+        <label for="horizontalAlign">Horizontal align</label>
+        <select name="horizontalAlign" id="horizontalAlign">
+            <option value="left">left</option>
+            <option value="center">center</option>
+            <option value="right">right</option>
+            <option value="justify">justify</option>
+        </select>
+    </div>
+
+    <div class="form-item">
+        <label for="padding">Set box padding</label>
+        <input type="text" id="padding" placeholder="1px 2px 3px 0px, 10px"/>
+    </div>
+    <div class="form-item">
+        <label for="height">Set box height</label>
+        <input type="text" id="height" placeholder="300px"/>
+    </div>
+
+
+    <textarea name="text" id="text" cols="30" rows="6">Type your text hire.</textarea>
+    <button id="apply">Apply</button>
+</fieldset>
+<div id="box"></div>
+
+
+<script src="js/fitness.js"></script>
+<script>
+    (function () {
+        'use strict';
+
+        var box = document.getElementById('box'),
+
+                apply = function () {
+                    var nowrap = document.getElementById('nowrap').checked,
+                            onResize = document.getElementById('fitOnResize').checked,
+                            verticalAlign = document.getElementById('verticalAlign').value,
+                            horizontalAlign = document.getElementById('horizontalAlign').value,
+                            text = document.getElementById('text').value,
+                            padding = document.getElementById('padding').value,
+                            height = document.getElementById('height').value;
+
+                    box.innerHTML = text;
+                    box.style.padding = padding;
+                    box.style.height = height;
+                    box.setAttribute('data-fit-on-resize', onResize.toString());
+                    box.setAttribute('data-nowrap', nowrap.toString());
+                    box.setAttribute('data-vertical-align', verticalAlign);
+                    box.setAttribute('data-horizontal-align', horizontalAlign);
+
+                    fitness.elements = [];
+                    fitness.add(box);
+                    fitness.fit(fitness.elements);
+                };
+
+        document.getElementById('apply').addEventListener('click', apply);
+        document.getElementById('nowrap').addEventListener('change', apply);
+        document.getElementById('fitOnResize').addEventListener('change', apply);
+        document.getElementById('verticalAlign').addEventListener('change', apply);
+        document.getElementById('horizontalAlign').addEventListener('change', apply);
+
+    }());
+</script>
+</body>
+</html>

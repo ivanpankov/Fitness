@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Fitness Groups Demo</title>
+    <link rel="stylesheet" href="css/normalize.css"/>
+
+    <style>
+        .clearfix:after {
+            content: " ";
+            display: block;
+            width: 0;
+            height: 0;
+            clear: both;
+        }
+
+        .fet-text {
+            margin: 4px;
+            padding: 10px;
+            background-color: yellow;
+            border: 1px solid red;
+            box-sizing: border-box;
+        }
+
+        .fet-text > div > div {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .textA, .textB, .textC {
+            width: 30%;
+            float: left;
+        }
+
+        .textA {
+            height: 400px;
+        }
+
+        .textB {
+            height: 300px;
+        }
+
+        .textC {
+            height: 200px;
+        }
+
+        .second .textA {
+            height: 200px;
+        }
+
+        .second .textB {
+            height: 200px;
+        }
+
+        .second .textC {
+            height: 200px;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="clearfix">
+    <div class="fet-text textA"
+         data-fit-on-resize="true"
+         data-group="grp1"
+            >
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci culpa eligendi error iste non, nostrum
+        obcaecati quae quisquam quo. Asperiores aut ex fugiat maxime minima minus nesciunt sequi sint.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci culpa eligendi error iste non, nostrum
+        obcaecati quae quisquam quo.
+    </div>
+
+    <div class="fet-text textB"
+         data-fit-on-resize="true"
+         data-horizontal-align="right"
+         data-vertical-align="bottom"
+         data-group="grp1"
+            >
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti enim hic ipsa ipsam laudantium non odit
+        perspiciatis repudiandae rerum sed. Accusamus commo
+    </div>
+    <div class="fet-text textC"
+         data-fit-on-resize="true"
+         data-horizontal-align="center"
+         data-vertical-align="middle"
+         data-group="grp1"
+            >
+        Lorem ipsum dolor sit amet, consectetur adipisicing
+    </div>
+</div>
+
+<div class="clearfix second">
+    <div class="fet-text textA"
+         data-fit-on-resize="true"
+         data-group="grp2"
+            >
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci culpa eligendi error iste non, nostrum
+        obcaecati quae quisquam quo. Asperiores aut ex fugiat maxime minima minus nesciunt sequi sint.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci culpa eligendi error iste non, nostrum
+        obcaecati quae quisquam quo. Asperiores aut ex fugiat maxime minima minus nesciunt sequi sint.
+    </div>
+
+    <div class="fet-text textB"
+         data-fit-on-resize="true"
+         data-horizontal-align="right"
+         data-vertical-align="bottom"
+         data-group="grp2"
+            >
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti enim hic ipsa ipsam laudantium non odit
+        perspiciatis repudiandae rerum sed. Accusamus commo
+    </div>
+    <div class="fet-text textC"
+         data-fit-on-resize="true"
+         data-horizontal-align="center"
+         data-vertical-align="middle"
+         data-group="grp2"
+            >
+        Lorem ipsum dolor sit amet, consectetur adipisicing
+    </div>
+</div>
+
+
+
+
+<script src="js/fitness.js"></script>
+<script>
+    var els = document.querySelectorAll('.fet-text');
+    fitness.forEach(els, function (item) {
+        fitness.add(item);
+    });
+
+    fitness.fit(fitness.elements);
+</script>
+</body>
+</html>

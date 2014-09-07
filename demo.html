@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Fitness Demo</title>
+    <link rel="stylesheet" href="css/normalize.css"/>
+
+    <style>
+        .clearfix:after {
+            content: " ";
+            display: block;
+            width: 0;
+            height: 0;
+            clear: both;
+        }
+
+        .fet-text {
+            height: 300px;
+            margin: 4px;
+            padding: 10px;
+            background-color: yellow;
+            border: 1px solid red;
+            box-sizing: border-box;
+        }
+
+        .fet-text > div > div {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .textA, .textB, .textC {
+            width: 30%;
+            float: left;
+        }
+
+        .nowrap {
+            height: 100px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="clearfix">
+    <div class="fet-text textA"
+         data-fit-on-resize="true"
+            >
+        Vertical align - "top", horizontal align - "left", fit on resize, <br><br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci culpa eligendi error iste non, nostrum
+        obcaecati quae quisquam quo. Asperiores aut ex fugiat maxime minima minus nesciunt sequi sint.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci culpa eligendi error iste non, nostrum
+        obcaecati quae quisquam quo. Asperiores aut ex fugiat maxime minima minus nesciunt sequi sint.
+    </div>
+
+    <div class="fet-text textB"
+         data-fit-on-resize="true"
+         data-horizontal-align="right"
+         data-vertical-align="bottom"
+            >
+        Vertical align - "bottom", horizontal align - "right", fit on resize, <br><br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti enim hic ipsa ipsam laudantium non odit
+        perspiciatis repudiandae rerum sed. Accusamus commodi ipsa optio prov
+    </div>
+    <div class="fet-text textC"
+         data-fit-on-resize="true"
+         data-horizontal-align="center"
+         data-vertical-align="middle"
+            >
+        Vertical align - "middle", horizontal align - "center", fit on resize
+    </div>
+</div>
+
+<div class="clearfit">
+    <div class="fet-text nowrap"
+         data-fit-on-resize="true"
+         data-nowrap="true"
+            >
+        This is nowrap text.
+    </div>
+
+    <div class="fet-text nowrap"
+         data-fit-on-resize="true"
+         data-horizontal-align="right"
+         data-vertical-align="bottom"
+         data-nowrap="true"
+            >
+        nowrap, horizontal align right, vertical align bottom.
+    </div>
+    <div class="fet-text nowrap"
+         data-fit-on-resize="true"
+         data-horizontal-align="center"
+         data-nowrap="true"
+            >
+        horizontal center
+    </div>
+    <div class="fet-text nowrap"
+         data-fit-on-resize="true"
+         data-vertical-align="middle"
+         data-nowrap="true"
+            >
+        And this text is align vertical middle
+    </div>
+</div>
+
+
+<script src="js/fitness.js"></script>
+<script>
+    var els = document.querySelectorAll('.fet-text');
+    fitness.forEach(els, function (item) {
+        fitness.add(item);
+    });
+
+    fitness.fit(fitness.elements);
+</script>
+</body>
+</html>
