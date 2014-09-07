@@ -55,6 +55,24 @@ Default: `false`
 Values: `any string`
 
 
+### How to use
+
+```js
+    var els = document.querySelectorAll('.tofit');
+    fitness.forEach(els, function (item) {
+        fitness.add(item);  // add dom elements to fitness
+    });
+
+// fit text
+    fitness.fit(fitness.elements);
+```
+
+Fitness provides `forEach` function for iterating arrays and `forEachIn` function for iterating object properties.
+
+
+
+
+
 #### _!!! Take care about: the text will be moved in new two nested divs. It may brake text styles._
 
 The code:
